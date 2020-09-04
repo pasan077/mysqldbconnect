@@ -12,11 +12,11 @@ if (!empty($username)){
 
         // create a connection
 
-        $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+        $conn = new mysql_connect ($host, $dbusername, $dbpassword, $dbname);
 
-        if ( mysql_connect_error()){
-            die('Connect Error ('. mysql_connect_errno() .') '
-            . mysqli_connect_error());
+        if ( mysql_connect()){
+            die('Connect Error ('. mysql_connect() .') '
+            . mysql_connect());
         }else{
             $sql = "INSERT INTO FORM (username, password) values ('$username', '$password')";
             if ($conn->query($sql)){
